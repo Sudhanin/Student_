@@ -1,0 +1,3 @@
+1717144,sudhan,4,male,CSE,UG
+1717146,sudhan,4,male,CSE,PG
+1717143,Sriram,4,male,CSE,UG

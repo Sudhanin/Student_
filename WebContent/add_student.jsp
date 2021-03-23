@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@page import="java.io.*,java.util.Date,java.util.Enumeration,student.Student,java.sql.*" %>
- <%@ page import="student.DB_Connection" %>
  <%	Student student=new Student();
  	student.Name=request.getParameter("student_name");
  	student.roll_number=request.getParameter("roll_number");
@@ -9,19 +8,8 @@
  	student.gender=request.getParameter("gender");
  	student.Department=request.getParameter("department");
  	student.Program = request.getParameter("program");
+ 	out.println(student.add());
  	
- 	try{
- 		Connection con =DB_Connection.getCon();
- 		Statement st = con.createStatement();
- 		st.executeUpdate("insert into student values('"+student.roll_number+"','"+student.Name+"','"+student.year+"','"+student.gender+"','"+student.Department+"','"+student.Program+"');");
- 	}
- 	catch (SQLIntegrityConstraintViolationException e) {
- 	    out.println("The details of the student is already added");
- 	}
- 	catch(Exception e){
- 		out.println(e);
- 	}
-	
  %>
 <!DOCTYPE html>
 <html>
